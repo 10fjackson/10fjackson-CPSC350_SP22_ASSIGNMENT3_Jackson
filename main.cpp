@@ -1,6 +1,10 @@
+#include "Grid.h"
+#include <iostream>
 using namespace std
 
 int main(){
-  return 0;
   cout << "Hi" << endl;
+  Grid(3,3);
+  Test();
+  return 0;
 }
