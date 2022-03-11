@@ -7,11 +7,13 @@ using namespace std;
 
 class Gamemode{
     public:
+        void SelectGamemode(char gamemode);
 
     private:
 };
 
 class ClassicMode{
+    public:
 
 };
 
