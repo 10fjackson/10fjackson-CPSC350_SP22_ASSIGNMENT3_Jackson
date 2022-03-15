@@ -1,3 +1,4 @@
+/*
 include "GameOfLife.h"
 
 Gamemode::Gamemode(){
@@ -19,3 +20,4 @@ void Gamemode::SelectGamemode(char gamemode){
         cout << "Incorrect gamemode type" << endl;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 #ifndef GAMEOFLIFE_H
 #define GAMEOFLIFE_H
 #include <iostream>
@@ -30,3 +31,4 @@ class FileProcessor{
 };
 
 #endif
+*/

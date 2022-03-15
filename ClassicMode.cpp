@@ -1,3 +1,4 @@
+/*
 #include "GameOfLife.h"
 
 ClassicMode::ClassicMode(){
@@ -22,3 +23,4 @@ int ClassicMode::ScanNeighbors(Grid grid){
         }
     }
 }
+*/

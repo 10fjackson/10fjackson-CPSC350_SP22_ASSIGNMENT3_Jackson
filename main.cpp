@@ -1,10 +1,9 @@
 #include "Grid.h"
 #include <iostream>
-using namespace std
+using namespace std;
 
-int main(){
-  cout << "Hi" << endl;
-  Grid(3,3);
-  Test();
+int main(int argc, char** argv){
+  Grid *g = new Grid(8,8);
+  g->Test();
   return 0;
 }

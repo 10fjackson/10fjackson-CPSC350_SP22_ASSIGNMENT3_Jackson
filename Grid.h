@@ -5,14 +5,14 @@ using namespace std;
 
 class Grid{
 public:
-  Grid();
-  Grid(int r, int c);
-  ~Grid();
-  void Test();
-  int row;
-  int col;
+  Grid();//construcor
+  Grid(int r, int c);//overloaded constructor
+  ~Grid();//garbage collection
+  void Test();//testing the method
+  int row;//number o rows
+  int col;//number of columns
 private:
-  char *grid;
+  char **grid;//grid for the experiment
 };
 
 
