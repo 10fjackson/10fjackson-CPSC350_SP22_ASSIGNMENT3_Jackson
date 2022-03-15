@@ -10,8 +10,6 @@ class ClassicMode{
 
 
         int ScanNeighbors(Grid grid);
-        bool CheckCell(Grid grid, int x, int y);
-
 
 
     private:
