@@ -1,5 +1,5 @@
 #include "Grid.h"
-#include "ClassicMode.cpp"
+#include "Gamemode.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -15,9 +15,11 @@ int main(int argc, char** argv){
   double density;
   string userInput;
   string inputFilePath;
-  string outputFilePath
+  string outputFilePath;
   int outputType;
   int gamemode;
+
+  Gamemode *g = new Gamemode();
 
   cout << "Would you like to provide a map file for the world or to generate a random world?" << endl;
   cout << "Enter 0 to provide a map file or 1 for a random world" << endl;
@@ -58,6 +60,8 @@ int main(int argc, char** argv){
   cout << "2 for mirror mode" << endl;
   cin >> gamemode;
   getline(cin, userInput);
+
+  g -> SetGamemode(gamemode);
 
   cout << "If would you like a pause between generations enter 0" << endl;
   cout << "If you would like to press Enter to go to the next generation enter 1" << endl;

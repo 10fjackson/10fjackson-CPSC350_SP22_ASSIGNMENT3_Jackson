@@ -1,6 +1,7 @@
 #ifndef GAMEMODE_H
 #define GAMEMODE_H
 #include <iostream>
+using namespace std;
 
 
 class Gamemode{
@@ -9,10 +10,10 @@ class Gamemode{
         Gamemode(bool current);
         ~Gamemode();
 
-        void SelectGamemode(char gamemode);
+        void SetGamemode(int gamemode);
         void CheckNextGeneration(int neighbors);
 
-
+        int gamemodeType;
 
 
     private:
