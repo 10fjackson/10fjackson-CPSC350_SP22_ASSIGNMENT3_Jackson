@@ -10,8 +10,10 @@ class Gamemode{
         Gamemode(bool current);
         ~Gamemode();
 
+        void PlayGame();
         void SetGamemode(int gamemode);
         void CheckNextGeneration(int neighbors);
+        void SetCurrent(char current);
 
         int gamemodeType;
 

@@ -1,5 +1,6 @@
 #include "Grid.h"
 #include "Gamemode.h"
+#include "ClassicMode.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -60,8 +61,8 @@ int main(int argc, char** argv){
   cout << "2 for mirror mode" << endl;
   cin >> gamemode;
   getline(cin, userInput);
-
-  g -> SetGamemode(gamemode);
+  g -> SetGamemode(gamemode); //set gamemode in gamemode class
+  g -> PlayGame();
 
   cout << "If would you like a pause between generations enter 0" << endl;
   cout << "If you would like to press Enter to go to the next generation enter 1" << endl;
