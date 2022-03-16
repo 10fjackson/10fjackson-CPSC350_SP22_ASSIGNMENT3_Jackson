@@ -9,6 +9,7 @@ public:
   Grid(int r, int c);//overloaded constructor
   ~Grid();//garbage collection
   void Test();//testing the method
+  void createGrid(string layout, int r, int c);
   int row;//number o rows
   int col;//number of columns
 private:

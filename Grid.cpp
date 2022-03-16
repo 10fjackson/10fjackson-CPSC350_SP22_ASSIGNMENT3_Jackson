@@ -31,11 +31,34 @@ void Grid::Test(){
   //double for loop to fill the grid with chars
   for(int i = 0; i < row;++i){
     for(int j = 0; j < col; ++j){
-      //fills the selected row/column spot with a char
-      grid[i][j] = 'X';
       //prints out the char in that spot
       cout<<grid[i][j];
     }
     cout<<endl;
   }
+}
+void Grid::createGrid(string layout, int r, int c){
+  row = r;
+  col = c;
+
+  if(layout == "random"){
+    //num will be a 1 or 2, will decide whether there is an X in this space
+    for(int i = 0; i < row;++i){
+      for(int j = 0; j < col; ++j){
+        int num = rand() % 2;
+        if(num == 1){
+          grid[i][j] = 'X';
+          cout<<grid[i][j];
+        }
+        else{
+          grid[i][j] = '-';
+          cout<<grid[i][j];
+        }
+        num = 0;
+      }
+      cout<<endl;
+    }
+
+  }//end of random if statement
+
 }

@@ -1,5 +1,5 @@
 
-include "GameOfLife.h"
+#include "GameOfLife.h"
 
 Gamemode::Gamemode(){
 
