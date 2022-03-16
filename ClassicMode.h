@@ -1,6 +1,7 @@
 #ifndef CLASSICMODE_H
 #define CLASSICMODE_H
 #include <iostream>
+using namespace std;
 
 
 class ClassicMode{
@@ -9,12 +10,15 @@ class ClassicMode{
         ~ClassicMode();
 
 
-        int ScanNeighbors(Grid grid);
+        void PlayClassicMode();
+        void ScanNeighbors();
 
 
     private:
         int row;
         int col;
+        bool isNeighbor;
+        int neighbors;
 
 
 };

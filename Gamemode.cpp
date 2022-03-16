@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 
 #include "GameOfLife.h"
+=======
+#include "Gamemode.h"
+#include "ClassicMode.h"
+>>>>>>> 8851785f57cfd317b26a5af8e3588ce9e66a75a7
 
 Gamemode::Gamemode(){
-
+    gamemodeType = 0;
+    next = false;
+    current = false;
 }
 
 Gamemode::Gamemode(bool current){
@@ -13,15 +20,23 @@ Gamemode::~Gamemode(){
 
 }
 
-void Gamemode::SelectGamemode(char gamemode){
-    if (gamemode == 'd'){
+void Gamemode::SetGamemode(int gamemode){
+    int gamemodeType = gamemode;
+    // cout << gamemodeType << endl;
+}
 
-    } else if (gamemode == 'm'){
+void Gamemode::PlayGame(){
+    ClassicMode *c = new ClassicMode();
+    int gamemode;
+    // DoughnutMode *d = new DoughnutMode();
+    // MirrorMode *m = new MirrorMode();
 
-    } else if (gamemode == 'c'){
-
-    } else {
-        cout << "Incorrect gamemode type" << endl;
+    if(gamemode == 0){ //play classic mode
+        c -> PlayClassicMode();
+    } else if (gamemode == 1){ //play doughnut mode
+        // d -> PlayDoughnutMode();
+    } else if (gamemode == 2){ //play mirror mode
+        // m -> PlayMirrorMode();
     }
 }
 
@@ -35,4 +50,13 @@ void Gamemode::CheckNextGeneration(int neighbors){
     } else {
         next = false;
     }
+}
+
+void Gamemode::SetCurrent(char c){
+    if(c == 'X'){
+        current = true;
+    } else {
+        current = false;
+    }
+    // cout << current << endl;
 }
