@@ -17,6 +17,7 @@ int main(int argc, char** argv){
   string inputFilePath;
   string outputFilePath
   int outputType;
+  int gamemode;
 
   cout << "Would you like to provide a map file for the world or to generate a random world?" << endl;
   cout << "Enter 0 to provide a map file or 1 for a random world" << endl;
@@ -39,6 +40,7 @@ int main(int argc, char** argv){
       // cout << density << endl;
 
       //generate random grid
+
   } else if (typeOfWorld == 0){
       cout << "Enter the file path to the map file:" << endl;
       cin >> inputFilePath;
@@ -49,6 +51,13 @@ int main(int argc, char** argv){
   } else {
       cout << "Invalid choice of world" << endl;
   }
+
+  cout << "Enter the boundary type you would like to play" << endl;
+  cout << "0 for classic mode" << endl;
+  cout << "1 for doughnut mode" << endl;
+  cout << "2 for mirror mode" << endl;
+  cin >> gamemode;
+  getline(cin, userInput);
 
   cout << "If would you like a pause between generations enter 0" << endl;
   cout << "If you would like to press Enter to go to the next generation enter 1" << endl;

@@ -13,12 +13,12 @@
 //
 // }
 //
-// void Gamemode::SelectGamemode(char gamemode){
-//     if (gamemode == 'd'){
+// void Gamemode::SelectGamemode(int gamemode){
+//     if (gamemode == 0){
 //
-//     } else if (gamemode == 'm'){
+//     } else if (gamemode == 1){
 //
-//     } else if (gamemode == 'c'){
+//     } else if (gamemode == 2){
 //
 //     } else {
 //         cout << "Incorrect gamemode type" << endl;
