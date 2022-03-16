@@ -1,10 +1,10 @@
-
-include "GameOfLife.h"
-
-DoughnutMode::DoughnutMode(){
-
-}
-
-DoughnutMode::~DoughnutMode(){
-
-}
+//
+// #include "DoughnutMode.h"
+//
+// DoughnutMode::DoughnutMode(){
+//
+// }
+//
+// DoughnutMode::~DoughnutMode(){
+//
+// }
