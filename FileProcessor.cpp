@@ -34,7 +34,7 @@ void FileProcessor::processMapFile(string fileName) {
         getline(readFile, line);
         for(int j = 0; j < width; ++ j){
             grid[i][j] = line[j];
-            cout << line[j] << endl;
+            // cout << line[j] << endl;
         }
     }
     readFile.close();
@@ -43,13 +43,13 @@ void FileProcessor::processMapFile(string fileName) {
 void FileProcessor::writeOutputFile(string outputFilePath){
     ofstream writeFile;
     writeFile.open(outputFilePath);
-    Grid *g;
-    char** grid = g -> grid;
+    //get future grid
     if(!writeFile.is_open()){
         cout << "Unable to open file";
     }
     for(int i = 0; i < height; ++i){
         for(int j = 0; j < width; ++j){
+            cout << grid[i][j]<< endl;
             writeFile << grid[i][j];
         }
     }

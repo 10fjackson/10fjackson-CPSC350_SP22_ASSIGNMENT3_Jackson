@@ -3,8 +3,8 @@
 
 Gamemode::Gamemode(){
     gamemodeType = 0;
-    next = false;
-    current = false;
+    next = ' ';
+    current = ' ';
 }
 
 Gamemode::Gamemode(bool current){
@@ -23,35 +23,35 @@ void Gamemode::SetGamemode(int gamemode){
 void Gamemode::PlayGame(){
     ClassicMode *c = new ClassicMode();
     int gamemode;
-    // DoughnutMode *d = new DoughnutMode();
-    // MirrorMode *m = new MirrorMode();
+    DoughnutMode *d = new DoughnutMode();
+    MirrorMode *m = new MirrorMode();
 
     if(gamemode == 0){ //play classic mode
         c -> PlayClassicMode();
     } else if (gamemode == 1){ //play doughnut mode
-        // d -> PlayDoughnutMode();
+        d -> PlayDoughnutMode();
     } else if (gamemode == 2){ //play mirror mode
-        // m -> PlayMirrorMode();
+        m -> PlayMirrorMode();
     }
 }
 
 void Gamemode::CheckNextGeneration(int neighbors){
     if(neighbors <= 1){
-        next = false;
+        next = '-';
     } else if (neighbors == 2){
         next = current;
     } else if (neighbors == 3){
-        next = true;
+        next = 'X';
     } else {
-        next = false;
+        next = '-';
     }
 }
 
 void Gamemode::SetCurrent(char c){
     if(c == 'X'){
-        current = true;
+        current = c;
     } else {
-        current = false;
+        current = '-';
     }
     // cout << current << endl;
 }

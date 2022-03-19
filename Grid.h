@@ -10,6 +10,9 @@ public:
   ~Grid();//garbage collection
   void Test();//testing the method
   void createGrid(string layout, float d, int r, int c);
+  bool isEmpty();
+  bool isStablized();
+
   int row;//number o rows
   int col;//number of columns
   char **grid;//grid for the experiment

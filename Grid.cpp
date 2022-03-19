@@ -85,3 +85,27 @@ void Grid::createGrid(string layout, float d, int r, int c){
   }//end of random if statement
 
 }
+
+void Grid:::printGrid(){
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; i < col; ++j){
+            cout << grid[i][j];
+        }
+        cout << endl;
+    }
+}
+
+bool Grid::isEmpty(){
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; i < col; ++j){
+            if(grid[i][j] == 'X'){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool Grid::isStablized(){
+    
+}
