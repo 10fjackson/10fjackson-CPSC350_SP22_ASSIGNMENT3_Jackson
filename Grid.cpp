@@ -39,3 +39,7 @@ void Grid::Test(){
     cout<<endl;
   }
 }
+
+// Grid Grid::GetGrid(){
+//     return grid;
+// }

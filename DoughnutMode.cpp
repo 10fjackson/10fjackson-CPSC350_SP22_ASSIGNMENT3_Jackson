@@ -10,9 +10,9 @@ DoughnutMode::~DoughnutMode(){
 }
 
 void DoughnutMode::PlayDoughnutMode(){
-
+    ScanNeighbors();
 }
 
 void DoughnutMode::ScanNeighbors(){
-    
+
 }

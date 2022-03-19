@@ -10,9 +10,9 @@ MirrorMode::~MirrorMode(){
 }
 
 void MirrorMode::PlayMirrorMode(){
-
+    ScanNeighbors();
 }
 
 void MirrorMode::ScanNeighbors(){
-    
+
 }
