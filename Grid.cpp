@@ -19,6 +19,7 @@ Grid::Grid(int r, int c){
     grid[i] = new char[col];
   }
 }
+
 Grid::~Grid(){
   //garbage collects the grid
   cout<<"Deleting Grid"<<endl;

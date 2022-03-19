@@ -28,6 +28,8 @@ void FileProcessor::processMapFile(string fileName) {
     // cout << width;
     Grid *g = new Grid(height, width); //create grid
 
+    char** grid = g->grid;
+
     for(int i = 0; i < height; ++i){
         getline(readFile, line);
         for(int j = 0; j < width; ++ j){
@@ -35,6 +37,21 @@ void FileProcessor::processMapFile(string fileName) {
             cout << line[j] << endl;
         }
     }
-    cout << grid << end;
     readFile.close();
+}
+
+void FileProcessor::writeOutputFile(string outputFilePath){
+    ofstream writeFile;
+    writeFile.open(outputFilePath);
+    Grid *g;
+    char** grid = g -> grid;
+    if(!writeFile.is_open()){
+        cout << "Unable to open file";
+    }
+    for(int i = 0; i < height; ++i){
+        for(int j = 0; j < width; ++j){
+            writeFile << grid[i][j];
+        }
+    }
+    writeFile.close();
 }

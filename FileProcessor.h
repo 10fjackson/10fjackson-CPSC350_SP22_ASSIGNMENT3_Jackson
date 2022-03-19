@@ -13,6 +13,7 @@ class FileProcessor{
         ~FileProcessor();
 
         void processMapFile(string fileName);
+        void writeOutputFile(string outputFilePath);
 
         int height;
         int width;

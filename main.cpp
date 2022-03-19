@@ -78,8 +78,9 @@ int main(int argc, char** argv){
 
   } else if (outputType == 2){
       cout << "Enter the file you would like to output to" << endl;
-      cin >> outputFilePath;
       getline (cin, userInput);
+      p -> writeOutputFile(userInput);
+
 
 
   } else {
