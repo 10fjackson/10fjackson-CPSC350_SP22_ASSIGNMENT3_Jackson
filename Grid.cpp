@@ -37,10 +37,12 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-void Grid::createGrid(string layout, int r, int c){
+void Grid::createGrid(string layout, float d, int r, int c){
   row = r;
   col = c;
-
+  float density = 1/d;
+  int actualx;
+  int numx = ((row*col)/density);
   if(layout == "random"){
     //num will be a 1 or 2, will decide whether there is an X in this space
     for(int i = 0; i < row;++i){
@@ -49,6 +51,7 @@ void Grid::createGrid(string layout, int r, int c){
         if(num == 1){
           grid[i][j] = 'X';
           cout<<grid[i][j];
+          actualx++;
         }
         else{
           grid[i][j] = '-';
@@ -58,7 +61,26 @@ void Grid::createGrid(string layout, int r, int c){
       }
       cout<<endl;
     }
-
+    if(actualx<numx){
+      while(actualx != numx){
+          int r = rand() % (row-1);
+          int c = rand() % (col-1);
+          if(grid[r][c] == 'X'){
+            grid[r][c] = '-';
+            actualx++;
+          }
+        }
+    }
+    if(actualx>numx){
+      while(actualx != numx){
+          int r = rand() % (row-1);
+          int c = rand() % (col-1);
+          if(grid[r][c] == '-'){
+            grid[r][c] = 'X';
+            actualx--;
+          }
+        }
+    }
   }//end of random if statement
 
 }
