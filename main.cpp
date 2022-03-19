@@ -1,6 +1,7 @@
 #include "Grid.h"
 #include "Gamemode.h"
 #include "ClassicMode.h"
+#include "FileProcessor.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -21,6 +22,7 @@ int main(int argc, char** argv){
   int gamemode;
 
   Gamemode *g = new Gamemode();
+  FileProcessor *p = new FileProcessor();
 
   cout << "Would you like to provide a map file for the world or to generate a random world?" << endl;
   cout << "Enter 0 to provide a map file or 1 for a random world" << endl;
@@ -48,6 +50,7 @@ int main(int argc, char** argv){
       cout << "Enter the file path to the map file:" << endl;
       cin >> inputFilePath;
       getline(cin, userInput);
+      p -> processMapFile(inputFilePath);
       //cout << filePath << endl;
 
       //read in file and create world
