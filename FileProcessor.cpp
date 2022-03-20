@@ -40,18 +40,20 @@ void FileProcessor::processMapFile(string fileName) {
     readFile.close();
 }
 
-void FileProcessor::writeOutputFile(string outputFilePath){
+void FileProcessor::writeOutputFile(string outputFilePath, int generation){
     ofstream writeFile;
     writeFile.open(outputFilePath);
     //get future grid
     if(!writeFile.is_open()){
         cout << "Unable to open file";
     }
+    writeFile << "Generation " << generation << endl;
     for(int i = 0; i < height; ++i){
         for(int j = 0; j < width; ++j){
             cout << grid[i][j]<< endl;
             writeFile << grid[i][j];
         }
     }
+    writeFile << endl;
     writeFile.close();
 }

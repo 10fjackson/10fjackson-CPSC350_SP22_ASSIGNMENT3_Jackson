@@ -20,6 +20,7 @@ int main(int argc, char** argv){
   string outputFilePath;
   int outputType;
   int gamemode;
+  int generation;
 
   Gamemode *g = new Gamemode();
   Grid *gr = new Grid();
@@ -75,27 +76,30 @@ int main(int argc, char** argv){
   getline(cin, userInput);
   while(!(gr->isEmpty() || gr->isStablized())){
       if(outputType == 0){
+          cout << "Generation " << generation << endl;
           //print grid
           system("pause");
       } else if (outputType == 1){
+          cout << "Generation " << generation << endl;
           //print grid
           cout << "Press Enter to go to the next generation" << endl;
           getline(cin, userInput){
               if(userInput == '\n'){
-                  continue;
+                  //print grid
               } else {
-                  break;
+                  continue;
               }
           }
       } else if (outputType == 2){
           cout << "Enter the file you would like to output to" << endl;
           getline (cin, userInput);
-          p -> writeOutputFile(userInput);
+          p -> writeOutputFile(userInput, generation);
 
 
 
       } else {
           cout << "Invalid output type" << endl;
       }
+      generation++;
   }
 }
