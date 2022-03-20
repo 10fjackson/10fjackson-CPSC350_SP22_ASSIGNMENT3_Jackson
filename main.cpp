@@ -20,8 +20,10 @@ int main(int argc, char** argv){
   string outputFilePath;
   int outputType;
   int gamemode;
+  int generation;
 
   Gamemode *g = new Gamemode();
+  Grid *gr = new Grid();
   FileProcessor *p = new FileProcessor();
 
   cout << "Would you like to provide a map file for the world or to generate a random world?" << endl;
@@ -72,18 +74,32 @@ int main(int argc, char** argv){
   cout << "If you would like to output everything to a file enter 2" << endl;
   cin >> outputType;
   getline(cin, userInput);
-  if(outputType == 0){
+  while(!(gr->isEmpty() || gr->isStablized())){
+      if(outputType == 0){
+          cout << "Generation " << generation << endl;
+          //print grid
+          system("pause");
+      } else if (outputType == 1){
+          cout << "Generation " << generation << endl;
+          //print grid
+          cout << "Press Enter to go to the next generation" << endl;
+          getline(cin, userInput){
+              if(userInput == '\n'){
+                  //print grid
+              } else {
+                  continue;
+              }
+          }
+      } else if (outputType == 2){
+          cout << "Enter the file you would like to output to" << endl;
+          getline (cin, userInput);
+          p -> writeOutputFile(userInput, generation);
 
-  } else if (outputType == 1){
-
-  } else if (outputType == 2){
-      cout << "Enter the file you would like to output to" << endl;
-      cin >> outputFilePath;
-      getline (cin, userInput);
 
 
-  } else {
-      cout << "Invalid output type" << endl;
+      } else {
+          cout << "Invalid output type" << endl;
+      }
+      generation++;
   }
-
 }

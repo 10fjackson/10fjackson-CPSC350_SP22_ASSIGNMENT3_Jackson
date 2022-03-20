@@ -19,8 +19,8 @@ class Gamemode{
 
 
     private:
-        bool current; //current cell status (true if occupied & false if empty)
-        bool next; //cell status for next generation
+        char current; //current cell status
+        char next; //cell status for next generation
 
 
 };
