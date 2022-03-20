@@ -37,6 +37,7 @@ void FileProcessor::processMapFile(string fileName) {
             // cout << line[j] << endl;
         }
     }
+    g->setGrid(grid);
     readFile.close();
 }
 
@@ -50,10 +51,10 @@ void FileProcessor::writeOutputFile(string outputFilePath, int generation){
     writeFile << "Generation " << generation << endl;
     for(int i = 0; i < height; ++i){
         for(int j = 0; j < width; ++j){
-            cout << grid[i][j]<< endl;
-            writeFile << grid[i][j];
+            // cout << grid[i][j]<< endl;
+            // writeFile << grid[i][j];
         }
     }
-    writeFile << endl;
+writeFile << endl;
     writeFile.close();
 }

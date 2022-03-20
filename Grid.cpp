@@ -5,6 +5,7 @@ using namespace std;
 Grid::Grid(){
   row = 0;
   col = 0;
+  density = 0.0;
   grid = new char*[0];
 }
 Grid::Grid(int r, int c){
@@ -38,10 +39,13 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-void Grid::createGrid(string layout, float d, int r, int c){
-  row = r;
-  col = c;
-  float density = 1/d;
+void Grid::createGrid(string layout){
+  int row = this->row;
+  // cout << "Row :" << row << endl;
+  int col = this->col;
+  // cout << "Col :" << col << endl;
+  float density = 1/this->density;
+  // cout << "Density :" << density << endl;
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -86,7 +90,36 @@ void Grid::createGrid(string layout, float d, int r, int c){
 
 }
 
-void Grid:::printGrid(){
+char** Grid::getGrid(){
+    return grid;
+}
+
+int Grid::getRow(){
+    return row;
+}
+
+int Grid::getCol(){
+    return col;
+}
+
+void Grid::setGrid(char** g){
+    grid = g;
+}
+
+void Grid::setRow(int r){
+    row = r;
+}
+
+void Grid::setCol(int c){
+    col = c;
+}
+
+void Grid::setDensity(float d){
+    density = d;
+}
+
+
+void Grid::printGrid(){
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             cout << grid[i][j];
@@ -107,5 +140,12 @@ bool Grid::isEmpty(){
 }
 
 bool Grid::isStablized(){
-    
+    // for(int i = 0; i < row; ++i){
+    //     for (int j = 0; j < col; ++j){
+    //         // if(grid[i][j] != futureGrid[i][j]){
+    //         //     return false;
+    //         }
+    //     }
+    // }
+    // return true;
 }

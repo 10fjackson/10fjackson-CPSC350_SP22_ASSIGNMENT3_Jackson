@@ -1,4 +1,5 @@
 #include "ClassicMode.h"
+#include "Grid.h"
 //#include "Gamemode.h"
 
 ClassicMode::ClassicMode(){
@@ -9,18 +10,21 @@ ClassicMode::~ClassicMode(){
 
 }
 
-//void ClassicMode::PlayClassicMode(){
-//    ScanNeighbors();
-//}
+void ClassicMode::PlayClassicMode(){
+    Grid g;
+    char** grid = g.getGrid();
+    ScanNeighbors(grid);
+}
 
-void ClassicMode::ScanNeighbors(){
+void ClassicMode::ScanNeighbors(char** grid){
     //Gamemode *g = new Gamemode();
-    char grid[4][4] = { {'-','X','-','-'},
-                        {'X','X','X','-'},
-                        {'-','-','-','-'},
-                        {'-','-','-','-'}};
-    int row = 4;
-    int col = 4;
+    Grid g;
+    // char grid[4][4] = { {'-','X','-','-'},
+    //                     {'X','X','X','-'},
+    //                     {'-','-','-','-'},
+    //                     {'-','-','-','-'}};
+    int row = g.getRow();
+    int col = g.getCol();
     bool isNeighbor = false;
     int neighbors = 0;
 

@@ -11,7 +11,7 @@ class ClassicMode{
 
 
         void PlayClassicMode();
-        void ScanNeighbors();
+        void ScanNeighbors(char** grid);
 
 
     private:

@@ -14,7 +14,7 @@ int main(int argc, char** argv){
   int typeOfWorld;
   int row;
   int col;
-  double density;
+  float density;
   string userInput;
   string inputFilePath;
   string outputFilePath;
@@ -34,19 +34,22 @@ int main(int argc, char** argv){
       cout << "Enter the number of rows you would like in your world:" << endl;
       cin >> row;
       getline(cin, userInput);
+      gr->setRow(row);
       // cout << row << endl;
 
       cout << "Enter the number of columns you would like in your world:" << endl;
       cin >> col;
       getline(cin, userInput);
+      gr->setCol(col);
       // cout << col << endl;
 
       cout << "Enter the density of the population in decimals (0.0 - 1.0)" << endl;
       cin >> density;
       getline(cin, userInput);
+      gr->setDensity(density);
       // cout << density << endl;
 
-      //generate random grid
+      gr -> createGrid("random");
 
   } else if (typeOfWorld == 0){
       cout << "Enter the file path to the map file:" << endl;
@@ -83,13 +86,12 @@ int main(int argc, char** argv){
           cout << "Generation " << generation << endl;
           //print grid
           cout << "Press Enter to go to the next generation" << endl;
-          getline(cin, userInput){
-              if(userInput == '\n'){
-                  //print grid
-              } else {
-                  continue;
-              }
-          }
+          getline(cin, userInput);
+              // if(userInput == '\n'){
+              //     //print grid
+              // } else {
+              //     continue;
+              // }
       } else if (outputType == 2){
           cout << "Enter the file you would like to output to" << endl;
           getline (cin, userInput);

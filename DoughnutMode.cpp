@@ -1,5 +1,6 @@
 //#include "Gamemode.h"
 #include "DoughnutMode.h"
+#include "Grid.h"
 
 DoughnutMode::DoughnutMode(){
 
@@ -10,16 +11,19 @@ DoughnutMode::~DoughnutMode(){
 }
 
 void DoughnutMode::PlayDoughnutMode(){
-    ScanNeighbors();
+    Grid g;
+    char** grid = g.getGrid();
+    ScanNeighbors(grid);
 }
 
-void DoughnutMode::ScanNeighbors(){
-  char grid[4][4] = { {'X','-','X','X'},
-                      {'X','-','X','X'},
-                      {'-','-','-','-'},
-                      {'X','-','X','X'}};
-  int row = 4;
-  int col = 4;
+void DoughnutMode::ScanNeighbors(char** grid){
+  // char grid[4][4] = { {'X','-','X','X'},
+  //                     {'X','-','X','X'},
+  //                     {'-','-','-','-'},
+  //                     {'X','-','X','X'}};
+  Grid g;
+  int row = g.getRow();
+  int col = g.getCol();
   bool isNeighbor = false;
   int neighbors = 0;
 

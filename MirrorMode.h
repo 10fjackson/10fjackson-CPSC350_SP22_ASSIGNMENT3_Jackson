@@ -10,7 +10,7 @@ class MirrorMode{
         ~MirrorMode();
 
         void PlayMirrorMode();
-        void ScanNeighbors();
+        void ScanNeighbors(char** grid);
 
 
     private:

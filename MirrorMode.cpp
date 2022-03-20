@@ -1,4 +1,5 @@
 #include "MirrorMode.h"
+#include "Grid.h"
 
 MirrorMode::MirrorMode(){
 
@@ -9,17 +10,20 @@ MirrorMode::~MirrorMode(){
 }
 
 void MirrorMode::PlayMirrorMode(){
-    ScanNeighbors();
+    Grid g;
+    char** grid = g.getGrid();
+    ScanNeighbors(grid);
 }
 
-void MirrorMode::ScanNeighbors(){
+void MirrorMode::ScanNeighbors(char** grid){
     //Gamemode *g = new Gamemode();
-    char grid[4][4] = { {'X','X','-','-'},
-                        {'X','X','-','-'},
-                        {'-','-','-','-'},
-                        {'-','-','-','-'}};
-    int row = 4;
-    int col = 4;
+    // char grid[4][4] = { {'X','X','-','-'},
+    //                     {'X','X','-','-'},
+    //                     {'-','-','-','-'},
+    //                     {'-','-','-','-'}};
+    Grid g;
+    int row = g.getRow();
+    int col = g.getCol();
     bool isNeighbor = false;
     int neighbors = 0;
 

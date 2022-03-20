@@ -1,5 +1,7 @@
 #include "Gamemode.h"
 #include "ClassicMode.h"
+#include "DoughnutMode.h"
+#include "MirrorMode.h"
 
 Gamemode::Gamemode(){
     gamemodeType = 0;
