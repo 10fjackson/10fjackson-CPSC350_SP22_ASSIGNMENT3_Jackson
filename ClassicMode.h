@@ -15,8 +15,6 @@ class ClassicMode{
 
 
     private:
-        int row;
-        int col;
         bool isNeighbor;
         int neighbors;
 
