@@ -9,7 +9,7 @@ Gamemode::Gamemode(){
     current = ' ';
 }
 
-Gamemode::Gamemode(bool current){
+Gamemode::Gamemode(char current){
     current = current;
 }
 
@@ -37,15 +37,15 @@ void Gamemode::PlayGame(){
     }
 }
 
-void Gamemode::CheckNextGeneration(int neighbors){
+char Gamemode::CheckNextGeneration(int neighbors){
     if(neighbors <= 1){
-        next = '-';
+        return '-';
     } else if (neighbors == 2){
-        next = current;
+        return current;
     } else if (neighbors == 3){
-        next = 'X';
+        return 'X';
     } else {
-        next = '-';
+        return '-';
     }
 }
 

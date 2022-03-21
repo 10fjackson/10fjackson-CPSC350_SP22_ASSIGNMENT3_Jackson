@@ -46,15 +46,15 @@ void FileProcessor::processMapFile(string fileName) {
 void FileProcessor::writeOutputFile(string outputFilePath, int generation){
     ofstream writeFile(outputFilePath);
     Grid g;
-    char** grid = g.getGrid(); //access grid
-    int row = g.getRow(); //access row
-    int col = g.getCol(); //access column
-    // cout << row << col << endl;
-    // for(int i = 0; i < row; ++i){
-    //     for(int j = 0; j < col; ++ j){
-    //         cout << grid[i][j] << endl;
-    //     }
-    // }
+    char** grid = g.grid; //access grid
+    int row = g.row; //access row
+    int col = g.col; //access column
+    cout << row << col << endl;
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; j < col; ++ j){
+            cout << grid[i][j] << endl;
+        }
+    }
     if(!writeFile.is_open()){ //Check if file is open
         cout << "Unable to open file";
     }

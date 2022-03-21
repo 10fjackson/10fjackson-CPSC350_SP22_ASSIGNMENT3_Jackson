@@ -1,6 +1,6 @@
 #include "ClassicMode.h"
 #include "Grid.h"
-//#include "Gamemode.h"
+#include "Gamemode.h"
 
 ClassicMode::ClassicMode(){
     neighbors = 0;
@@ -17,7 +17,6 @@ void ClassicMode::PlayClassicMode(){
 }
 
 void ClassicMode::ScanNeighbors(char** grid){
-    //Gamemode *g = new Gamemode();
     Grid g;
     // char grid[4][4] = { {'-','X','-','-'},
     //                     {'X','X','X','-'},
@@ -25,13 +24,14 @@ void ClassicMode::ScanNeighbors(char** grid){
     //                     {'-','-','-','-'}};
     int row = g.getRow();
     int col = g.getCol();
+    char** shadowGrid = g.shadowGrid;
     bool isNeighbor = false;
     int neighbors = 0;
 
     for(int i = 0; i < row; ++i){
       for(int j = 0; j < col; ++j){
         if(grid[i][j] == 'X'){
-
+            Gamemode *g = new Gamemode('X');
 
             if(grid[i-1][j-1] == 'X' && (i != 0 && j != 0)){
               //top left
@@ -81,6 +81,7 @@ void ClassicMode::ScanNeighbors(char** grid){
               neighbors++;
             }
             cout<<neighbors<<endl;
+            shadowGrid[i][j] = g->CheckNextGeneration(neighbors);
             neighbors = 0;
         }
       }

@@ -11,6 +11,7 @@ public:
   void Test();//testing the method
   void createGrid(string layout);
   void printGrid();
+  void createShadowGrid();
 
   //accessors
   char** getGrid();
@@ -31,6 +32,7 @@ public:
   int col;//number of columns
   float density;
   char **grid;//grid for the experiment
+  char **shadowGrid;
 private:
 
 };
