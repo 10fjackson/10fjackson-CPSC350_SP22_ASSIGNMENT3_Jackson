@@ -55,16 +55,13 @@ void Grid::createGrid(string layout){
         int num = rand() % 2;
         if(num == 1){
           grid[i][j] = 'X';
-          cout<<grid[i][j];
           actualx++;
         }
         else{
           grid[i][j] = '-';
-          cout<<grid[i][j];
         }
         num = 0;
       }
-      cout<<endl;
     }
     if(actualx<numx){
       while(actualx != numx){

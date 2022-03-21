@@ -12,7 +12,7 @@ class Gamemode{
 
         void PlayGame();
         void SetGamemode(int gamemode);
-        void CheckNextGeneration(int neighbors);
+        char CheckNextGeneration(int neighbors);
         void SetCurrent(char current);
 
         int gamemodeType;
