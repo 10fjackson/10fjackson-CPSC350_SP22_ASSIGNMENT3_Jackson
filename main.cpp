@@ -4,6 +4,8 @@
 #include "FileProcessor.h"
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
+
 using namespace std;
 
 int main(int argc, char** argv){
@@ -21,6 +23,7 @@ int main(int argc, char** argv){
   int outputType;
   int gamemode;
   int generation;
+  char input;
 
   Gamemode *g = new Gamemode();
   Grid *gr = new Grid();
@@ -77,31 +80,25 @@ int main(int argc, char** argv){
   cout << "If you would like to output everything to a file enter 2" << endl;
   cin >> outputType;
   getline(cin, userInput);
-  while(!(gr->isEmpty() || gr->isStablized())){
+  // while(!(gr->isEmpty() || gr->isStablized())){
       if(outputType == 0){
           cout << "Generation " << generation << endl;
-          //print grid
+          gr->printGrid();
           system("pause");
       } else if (outputType == 1){
           cout << "Generation " << generation << endl;
-          //print grid
+          gr->printGrid();
           cout << "Press Enter to go to the next generation" << endl;
-          getline(cin, userInput);
-              // if(userInput == '\n'){
-              //     //print grid
-              // } else {
-              //     continue;
-              // }
+          cin.get(); 
       } else if (outputType == 2){
           cout << "Enter the file you would like to output to" << endl;
           getline (cin, userInput);
+          cout << row << endl;
           p -> writeOutputFile(userInput, generation);
-
-
 
       } else {
           cout << "Invalid output type" << endl;
       }
       generation++;
-  }
+  // }
 }

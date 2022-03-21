@@ -40,12 +40,13 @@ void Grid::Test(){
   }
 }
 void Grid::createGrid(string layout){
-  int row = this->row;
+  int row = row;
   // cout << "Row :" << row << endl;
-  int col = this->col;
+  int col = col;
   // cout << "Col :" << col << endl;
-  float density = 1/this->density;
+  float density = 1/density;
   // cout << "Density :" << density << endl;
+  char** grid = grid;
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -76,6 +77,7 @@ void Grid::createGrid(string layout){
           }
         }
     }
+
     if(actualx>numx){
       while(actualx != numx){
           int r = rand() % (row-1);
@@ -90,6 +92,7 @@ void Grid::createGrid(string layout){
 
 }
 
+//Accessors
 char** Grid::getGrid(){
     return grid;
 }
@@ -102,6 +105,7 @@ int Grid::getCol(){
     return col;
 }
 
+//Modifiers
 void Grid::setGrid(char** g){
     grid = g;
 }
@@ -132,7 +136,7 @@ bool Grid::isEmpty(){
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             if(grid[i][j] == 'X'){
-                return false;
+                return false; //if there is an occupied cell then grid is not empty
             }
         }
     }

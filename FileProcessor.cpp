@@ -27,14 +27,16 @@ void FileProcessor::processMapFile(string fileName) {
     // cout << height;
     // cout << width;
     Grid *g = new Grid(height, width); //create grid
+    g->setRow(height);
+    g->setCol(width);
 
-    char** grid = g->grid;
+    char** grid = g->getGrid();
 
     for(int i = 0; i < height; ++i){
         getline(readFile, line);
         for(int j = 0; j < width; ++ j){
             grid[i][j] = line[j];
-            // cout << line[j] << endl;
+            // cout << grid[i][j] << endl;
         }
     }
     g->setGrid(grid);
@@ -42,19 +44,27 @@ void FileProcessor::processMapFile(string fileName) {
 }
 
 void FileProcessor::writeOutputFile(string outputFilePath, int generation){
-    ofstream writeFile;
-    writeFile.open(outputFilePath);
-    //get future grid
-    if(!writeFile.is_open()){
+    ofstream writeFile(outputFilePath);
+    Grid g;
+    char** grid = g.getGrid(); //access grid
+    int row = g.getRow(); //access row
+    int col = g.getCol(); //access column
+    // cout << row << col << endl;
+    // for(int i = 0; i < row; ++i){
+    //     for(int j = 0; j < col; ++ j){
+    //         cout << grid[i][j] << endl;
+    //     }
+    // }
+    if(!writeFile.is_open()){ //Check if file is open
         cout << "Unable to open file";
     }
     writeFile << "Generation " << generation << endl;
-    for(int i = 0; i < height; ++i){
-        for(int j = 0; j < width; ++j){
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; j < col; ++j){
             // cout << grid[i][j]<< endl;
-            // writeFile << grid[i][j];
+            writeFile << grid[i][j]; //Write each cell to file
         }
     }
-writeFile << endl;
+    writeFile << endl;
     writeFile.close();
 }
