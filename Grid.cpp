@@ -40,12 +40,13 @@ void Grid::Test(){
   }
 }
 void Grid::createGrid(string layout){
-  int row = this->row;
+  int row;
   // cout << "Row :" << row << endl;
-  int col = this->col;
+  int col;
   // cout << "Col :" << col << endl;
-  float density = 1/this->density;
+  float density = 1/density;
   // cout << "Density :" << density << endl;
+  char** grid;
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -73,6 +74,7 @@ void Grid::createGrid(string layout){
           }
         }
     }
+
     if(actualx>numx){
       while(actualx != numx){
           int r = rand() % (row-1);
@@ -87,6 +89,23 @@ void Grid::createGrid(string layout){
 
 }
 
+void Grid::createShadowGrid(){
+    int row;
+    int col;
+    char** grid;
+    shadowGrid = new char* [row];
+    for(int i = 0; i < row; ++i) {
+      shadowGrid[i] = new char[col];
+    }
+    for(int x = 0; x < row; ++x){
+        for(int y = 0; y < col; ++y){
+            shadowGrid[x][y] = grid[x][y];
+        }
+    }
+}
+
+
+//Accessors
 char** Grid::getGrid(){
     return grid;
 }
@@ -99,6 +118,7 @@ int Grid::getCol(){
     return col;
 }
 
+//Modifiers
 void Grid::setGrid(char** g){
     grid = g;
 }
@@ -129,7 +149,7 @@ bool Grid::isEmpty(){
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             if(grid[i][j] == 'X'){
-                return false;
+                return false; //if there is an occupied cell then grid is not empty
             }
         }
     }
@@ -137,12 +157,12 @@ bool Grid::isEmpty(){
 }
 
 bool Grid::isStablized(){
-    // for(int i = 0; i < row; ++i){
-    //     for (int j = 0; j < col; ++j){
-    //         // if(grid[i][j] != futureGrid[i][j]){
-    //         //     return false;
-    //         }
-    //     }
-    // }
-    // return true;
+    for(int i = 0; i < row; ++i){
+        for (int j = 0; j < col; ++j){
+            if(grid[i][j] != shadowGrid[i][j]){
+                return false;
+            }
+        }
+    }
+    return true;
 }

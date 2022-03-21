@@ -29,7 +29,6 @@ void DoughnutMode::ScanNeighbors(char** grid){
 
   for(int i = 0; i < row; ++i){
     for(int j = 0; j < col; ++j){
-      if(grid[i][j] == 'X'){
         if(i == 0 && j == 0){
           //top left corner
           if(grid[row-1][j] == 'X'){
@@ -208,7 +207,7 @@ void DoughnutMode::ScanNeighbors(char** grid){
         cout<<neighbors<<endl;
         neighbors = 0;
 
-      }
+
     }
   }
 }

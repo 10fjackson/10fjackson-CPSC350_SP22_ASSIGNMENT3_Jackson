@@ -29,7 +29,6 @@ void MirrorMode::ScanNeighbors(char** grid){
 
     for(int i = 0; i < row; ++i){
       for(int j = 0; j < col; ++j){
-        if(grid[i][j] == 'X'){
 
           //corners
           // will add only number of mirrored neighbors
@@ -171,7 +170,7 @@ void MirrorMode::ScanNeighbors(char** grid){
             }
             cout<<neighbors<<endl;
             neighbors = 0;
-        }
+
       }
     }
 

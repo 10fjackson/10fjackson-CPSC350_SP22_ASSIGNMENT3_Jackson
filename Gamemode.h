@@ -7,7 +7,7 @@ using namespace std;
 class Gamemode{
     public:
         Gamemode();
-        Gamemode(bool current);
+        Gamemode(char current);
         ~Gamemode();
 
         void PlayGame();
