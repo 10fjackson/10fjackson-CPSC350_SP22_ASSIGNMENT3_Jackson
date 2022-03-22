@@ -21,9 +21,7 @@ int main(int argc, char** argv){
   int outputType;
   int gamemode;
   int generation;
-
   Gamemode *g = new Gamemode();
-  Grid *gr = new Grid();
   FileProcessor *p = new FileProcessor();
 
   cout << "Would you like to provide a map file for the world or to generate a random world?" << endl;
@@ -34,21 +32,21 @@ int main(int argc, char** argv){
       cout << "Enter the number of rows you would like in your world:" << endl;
       cin >> row;
       getline(cin, userInput);
-      gr->setRow(row);
+      //gr->setRow(row);
       // cout << row << endl;
 
       cout << "Enter the number of columns you would like in your world:" << endl;
       cin >> col;
       getline(cin, userInput);
-      gr->setCol(col);
+      //gr->setCol(col);
       // cout << col << endl;
 
       cout << "Enter the density of the population in decimals (0.0 - 1.0)" << endl;
       cin >> density;
       getline(cin, userInput);
-      gr->setDensity(density);
+      //gr->setDensity(density);
       // cout << density << endl;
-
+      Grid *gr = new Grid(row, col);
       gr -> createGrid("random");
 
   } else if (typeOfWorld == 0){
