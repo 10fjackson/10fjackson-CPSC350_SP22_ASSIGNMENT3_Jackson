@@ -39,12 +39,12 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-char** Grid::createGrid(string layout){
-  int row;
+char** Grid::createGrid(string layout, int r, int c, float d){
+  int row = r;
   // cout << "Row :" << row << endl;
-  int col;
+  int col = c;
   // cout << "Col :" << col << endl;
-  float density = 1/density;
+  float density = 1/d;
   // cout << "Density :" << density << endl;
   char** grid;
   int actualx;

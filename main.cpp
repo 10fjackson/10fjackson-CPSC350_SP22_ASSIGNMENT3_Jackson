@@ -36,21 +36,21 @@ int main(int argc, char** argv){
       cout << "Enter the number of rows you would like in your world:" << endl;
       cin >> row; //store row variable
       getline(cin, userInput);
-      gr->setRow(row); //set the row in the grid class
+      // gr->setRow(row); //set the row in the grid class
       // cout << row << endl;
 
       cout << "Enter the number of columns you would like in your world:" << endl;
       cin >> col; //store column variable
       getline(cin, userInput);
-      gr->setCol(col); //set the column in the grid class
+      // gr->setCol(col); //set the column in the grid class
       // cout << col << endl;
 
       cout << "Enter the density of the population in decimals (0.0 - 1.0)" << endl;
       cin >> density; //store density variable
       getline(cin, userInput);
-      gr->setDensity(density); //set the density in th egrid class
+      // gr->setDensity(density); //set the density in th egrid class
       // cout << density << endl;
-      grid = gr -> createGrid("random"); //generate random cells
+      grid = gr -> createGrid("random", row, col, density); //generate random cells
       shadowGrid = gr->createShadowGrid(grid); //create shadow grid to copy grid
       shadowGrid = grid;
 
