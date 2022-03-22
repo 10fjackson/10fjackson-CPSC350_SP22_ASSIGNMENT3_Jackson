@@ -21,6 +21,10 @@ int main(int argc, char** argv){
   int outputType;
   int gamemode;
   int generation;
+  char** grid;
+  char** shadowGrid;
+
+  Grid *gr = new Grid(4,4);
   Gamemode *g = new Gamemode();
   FileProcessor *p = new FileProcessor();
 
@@ -45,15 +49,19 @@ int main(int argc, char** argv){
       cin >> density;
       getline(cin, userInput);
       //gr->setDensity(density);
+
       // cout << density << endl;
-      Grid *gr = new Grid(row, col);
-      gr -> createGrid("random");
+
+
+      grid = gr -> createGrid("random");
 
   } else if (typeOfWorld == 0){
       cout << "Enter the file path to the map file:" << endl;
       cin >> inputFilePath;
       getline(cin, userInput);
-      p -> processMapFile(inputFilePath);
+      grid = p -> processMapFile(inputFilePath);
+      shadowGrid = grid;
+      cout << grid << endl;
       //cout << filePath << endl;
 
       //read in file and create world
@@ -68,21 +76,25 @@ int main(int argc, char** argv){
   cin >> gamemode;
   getline(cin, userInput);
   g -> SetGamemode(gamemode); //set gamemode in gamemode class
-  g -> PlayGame();
+  grid = g -> PlayGame(grid);
+  gr -> printGrid(grid);
 
   cout << "If would you like a pause between generations enter 0" << endl;
   cout << "If you would like to press Enter to go to the next generation enter 1" << endl;
   cout << "If you would like to output everything to a file enter 2" << endl;
   cin >> outputType;
   getline(cin, userInput);
-  while(!(gr->isEmpty() || gr->isStablized())){
+
+  while(!(gr->isEmpty(grid) || gr->isStablized(grid, shadowGrid))){
       if(outputType == 0){
           cout << "Generation " << generation << endl;
-          //print grid
+          gr -> printGrid(grid);
           system("pause");
+          shadowGrid = grid;
+          grid = g -> PlayGame(grid);
       } else if (outputType == 1){
           cout << "Generation " << generation << endl;
-          //print grid
+          gr -> printGrid(grid);
           cout << "Press Enter to go to the next generation" << endl;
           getline(cin, userInput);
               // if(userInput == '\n'){
@@ -90,12 +102,14 @@ int main(int argc, char** argv){
               // } else {
               //     continue;
               // }
+              shadowGrid = grid;
+              grid = g -> PlayGame(grid);
       } else if (outputType == 2){
           cout << "Enter the file you would like to output to" << endl;
           getline (cin, userInput);
           p -> writeOutputFile(userInput, generation);
-
-
+          shadowGrid = grid;
+          grid = g -> PlayGame(grid);
 
       } else {
           cout << "Invalid output type" << endl;

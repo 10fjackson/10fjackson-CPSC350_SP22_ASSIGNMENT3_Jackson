@@ -12,7 +12,7 @@ class FileProcessor{
         FileProcessor();
         ~FileProcessor();
 
-        void processMapFile(string fileName);
+        char** processMapFile(string fileName);
         void writeOutputFile(string outputFilePath, int generation);
 
         int height;

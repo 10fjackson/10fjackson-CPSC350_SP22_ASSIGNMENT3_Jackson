@@ -9,9 +9,9 @@ public:
   Grid(int r, int c);//overloaded constructor
   ~Grid();//garbage collection
   void Test();//testing the method
-  void createGrid(string layout);
-  void printGrid();
-  void createShadowGrid();
+  char** createGrid(string layout);
+  void printGrid(char** grid);
+  char** createShadowGrid(char** grid);
 
   //accessors
   char** getGrid();
@@ -25,8 +25,8 @@ public:
   void setDensity(float density);
 
 
-  bool isEmpty();
-  bool isStablized();
+  bool isEmpty(char** grid);
+  bool isStablized(char** grid, char** shadowGrid);
 
   int row;//number o rows
   int col;//number of columns
