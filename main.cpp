@@ -22,8 +22,8 @@ int main(int argc, char** argv){
   int gamemode;
   int generation;
 
+  Grid *gr;
   Gamemode *g = new Gamemode();
-  Grid *gr = new Grid();
   FileProcessor *p = new FileProcessor();
   char** grid;
   char** shadowGrid;
@@ -48,9 +48,16 @@ int main(int argc, char** argv){
       cout << "Enter the density of the population in decimals (0.0 - 1.0)" << endl;
       cin >> density; //store density variable
       getline(cin, userInput);
+<<<<<<< HEAD
       // gr->setDensity(density); //set the density in th egrid class
       // cout << density << endl;
       grid = gr -> createGrid("random", row, col, density); //generate random cells
+=======
+      gr->setDensity(density); //set the density in the grid class
+      // cout << density << endl;
+      gr = new Grid(row, col);
+      grid = gr -> createGrid("random"); //generate random cells
+>>>>>>> 63ab551ddcd6cce7556530ad0acf35a028c8b8b4
       shadowGrid = gr->createShadowGrid(grid); //create shadow grid to copy grid
       shadowGrid = grid;
 
