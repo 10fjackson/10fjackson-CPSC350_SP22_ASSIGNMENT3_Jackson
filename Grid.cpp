@@ -39,7 +39,7 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-void Grid::createGrid(string layout){
+char** Grid::createGrid(string layout){
   int row;
   // cout << "Row :" << row << endl;
   int col;
@@ -86,13 +86,13 @@ void Grid::createGrid(string layout){
         }
     }
   }//end of random if statement
+  return grid;
 
 }
 
-void Grid::createShadowGrid(){
+char** Grid::createShadowGrid(char** grid){
     int row;
     int col;
-    char** grid;
     shadowGrid = new char* [row];
     for(int i = 0; i < row; ++i) {
       shadowGrid[i] = new char[col];
@@ -136,7 +136,7 @@ void Grid::setDensity(float d){
 }
 
 
-void Grid::printGrid(){
+void Grid::printGrid(char** grid){
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             cout << grid[i][j];
@@ -145,7 +145,7 @@ void Grid::printGrid(){
     }
 }
 
-bool Grid::isEmpty(){
+bool Grid::isEmpty(char** grid){
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             if(grid[i][j] == 'X'){
@@ -156,7 +156,7 @@ bool Grid::isEmpty(){
     return true;
 }
 
-bool Grid::isStablized(){
+bool Grid::isStablized(char** grid, char** shadowGrid){
     for(int i = 0; i < row; ++i){
         for (int j = 0; j < col; ++j){
             if(grid[i][j] != shadowGrid[i][j]){

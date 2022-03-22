@@ -10,13 +10,12 @@ DoughnutMode::~DoughnutMode(){
 
 }
 
-void DoughnutMode::PlayDoughnutMode(){
-    Grid g;
-    char** grid = g.getGrid();
-    ScanNeighbors(grid);
+char** DoughnutMode::PlayDoughnutMode(char** grid){
+    char** shadowGrid = ScanNeighbors(grid);
+    return shadowGrid;
 }
 
-void DoughnutMode::ScanNeighbors(char** grid){
+char** DoughnutMode::ScanNeighbors(char** grid){
   // char grid[4][4] = { {'X','-','X','X'},
   //                     {'X','-','X','X'},
   //                     {'-','-','-','-'},

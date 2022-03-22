@@ -10,7 +10,7 @@ FileProcessor::~FileProcessor(){
 
 }
 
-void FileProcessor::processMapFile(string fileName) {
+char** FileProcessor::processMapFile(string fileName) {
 
     ifstream readFile (fileName);
 
@@ -39,7 +39,7 @@ void FileProcessor::processMapFile(string fileName) {
             // cout << grid[i][j] << endl;
         }
     }
-    g->setGrid(grid);
+    return grid;
     readFile.close();
 }
 

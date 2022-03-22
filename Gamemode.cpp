@@ -22,18 +22,22 @@ void Gamemode::SetGamemode(int gamemode){
     // cout << gamemodeType << endl;
 }
 
-void Gamemode::PlayGame(){
+char** Gamemode::PlayGame(char** grid){
     ClassicMode *c = new ClassicMode();
     int gamemode;
+    char** shadowGrid;
     DoughnutMode *d = new DoughnutMode();
     MirrorMode *m = new MirrorMode();
 
     if(gamemode == 0){ //play classic mode
-        c -> PlayClassicMode();
+        shadowGrid = c -> PlayClassicMode(grid);
+        return shadowGrid;
     } else if (gamemode == 1){ //play doughnut mode
-        d -> PlayDoughnutMode();
+        shadowGrid = d -> PlayDoughnutMode(grid);
+        return shadowGrid;
     } else if (gamemode == 2){ //play mirror mode
-        m -> PlayMirrorMode();
+        shadowGrid = m -> PlayMirrorMode(grid);
+        return shadowGrid;
     }
 }
 

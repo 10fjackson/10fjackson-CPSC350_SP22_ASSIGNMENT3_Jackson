@@ -10,13 +10,12 @@ ClassicMode::~ClassicMode(){
 
 }
 
-void ClassicMode::PlayClassicMode(){
-    Grid g;
-    char** grid = g.getGrid();
-    ScanNeighbors(grid);
+char** ClassicMode::PlayClassicMode(char** grid){
+    char** shadowGrid = ScanNeighbors(grid);
+    return shadowGrid;
 }
 
-void ClassicMode::ScanNeighbors(char** grid){
+char** ClassicMode::ScanNeighbors(char** grid){
     Grid g;
     // char grid[4][4] = { {'-','X','-','-'},
     //                     {'X','X','X','-'},
@@ -24,7 +23,7 @@ void ClassicMode::ScanNeighbors(char** grid){
     //                     {'-','-','-','-'}};
     int row = g.getRow();
     int col = g.getCol();
-    char** shadowGrid = g.shadowGrid;
+    char** shadowGrid = g.createShadowGrid(grid);
     bool isNeighbor = false;
     int neighbors = 0;
 
@@ -86,5 +85,5 @@ void ClassicMode::ScanNeighbors(char** grid){
       }
     }
 
-
+    return shadowGrid;
 }

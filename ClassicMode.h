@@ -10,8 +10,8 @@ class ClassicMode{
         ~ClassicMode();
 
 
-        void PlayClassicMode();
-        void ScanNeighbors(char** grid);
+        char** PlayClassicMode(char** grid);
+        char** ScanNeighbors(char** grid);
 
 
     private:

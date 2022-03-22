@@ -9,13 +9,12 @@ MirrorMode::~MirrorMode(){
 
 }
 
-void MirrorMode::PlayMirrorMode(){
-    Grid g;
-    char** grid = g.getGrid();
-    ScanNeighbors(grid);
+char** MirrorMode::PlayMirrorMode(char** grid){
+    char** shadowGrid = ScanNeighbors(grid);
+    return shadowGrid;
 }
 
-void MirrorMode::ScanNeighbors(char** grid){
+char** MirrorMode::ScanNeighbors(char** grid){
     //Gamemode *g = new Gamemode();
     // char grid[4][4] = { {'X','X','-','-'},
     //                     {'X','X','-','-'},
