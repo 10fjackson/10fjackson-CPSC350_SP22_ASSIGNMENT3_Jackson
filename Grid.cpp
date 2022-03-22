@@ -55,7 +55,9 @@ char** Grid::createGrid(string layout){
       for(int j = 0; j < col; ++j){
         int num = rand() % 2;
         if(num == 1){
+          cout<<"58"<<endl;
           grid[i][j] = 'X';
+          cout<<"60"<<endl;
           actualx++;
         }
         else{
