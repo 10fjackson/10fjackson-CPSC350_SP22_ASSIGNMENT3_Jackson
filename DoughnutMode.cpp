@@ -21,8 +21,8 @@ char** DoughnutMode::ScanNeighbors(char** grid){
   //                     {'-','-','-','-'},
   //                     {'X','-','X','X'}};
   Grid g;
-  int row = g.getRow();
-  int col = g.getCol();
+  int row = g.getRow(); //set row
+  int col = g.getCol(); //set column
   bool isNeighbor = false;
   int neighbors = 0;
 

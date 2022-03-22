@@ -16,20 +16,20 @@ char** ClassicMode::PlayClassicMode(char** grid){
 }
 
 char** ClassicMode::ScanNeighbors(char** grid){
-    Grid g;
     // char grid[4][4] = { {'-','X','-','-'},
     //                     {'X','X','X','-'},
     //                     {'-','-','-','-'},
     //                     {'-','-','-','-'}};
+    Grid g;
     int row = g.getRow();
     int col = g.getCol();
-    char** shadowGrid = g.createShadowGrid(grid);
-    bool isNeighbor = false;
+    char** shadowGrid = grid; //create shadow grid to store current grid
+    bool isNeighbor = false; //check if there are neighbors
     int neighbors = 0;
 
     for(int i = 0; i < row; ++i){
       for(int j = 0; j < col; ++j){
-            Gamemode *g = new Gamemode('X');
+            Gamemode *g = new Gamemode('X'); //set current to X
 
             if(grid[i-1][j-1] == 'X' && (i != 0 && j != 0)){
               //top left
