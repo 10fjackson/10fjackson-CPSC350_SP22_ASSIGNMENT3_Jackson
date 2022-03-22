@@ -9,7 +9,7 @@ public:
   Grid(int r, int c);//overloaded constructor
   ~Grid();//garbage collection
   void Test();//testing the method
-  char** createGrid(string layout, int row, int col, float density);
+  char** createGrid(string layout);
   void printGrid(char** grid);
   char** createShadowGrid(char** grid);
 

@@ -39,12 +39,13 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-char** Grid::createGrid(string layout, int r, int c, float d){
-  int row = r;
-  // cout << "Row :" << row << endl;
-  int col = c;
-  // cout << "Col :" << col << endl;
-  float density = 1/d;
+char** Grid::createGrid(string layout){
+  int row;
+  cout << "Row :" << row << endl;
+  int col;
+  cout << "Col :" << col << endl;
+
+  float density = 1/density;
   // cout << "Density :" << density << endl;
   char** grid;
   int actualx;
@@ -66,6 +67,7 @@ char** Grid::createGrid(string layout, int r, int c, float d){
         num = 0;
       }
     }
+    /*
     if(actualx<numx){
       while(actualx != numx){
           int r = rand() % (row-1);
@@ -87,6 +89,7 @@ char** Grid::createGrid(string layout, int r, int c, float d){
           }
         }
     }
+    */
   }//end of random if statement
   return grid;
 
