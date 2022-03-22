@@ -13,7 +13,7 @@ class FileProcessor{
         ~FileProcessor();
 
         char** processMapFile(string fileName);
-        void writeOutputFile(string outputFilePath, int generation);
+        void writeOutputFile(string outputFilePath, int generation, char** grid);
 
         int height;
         int width;
