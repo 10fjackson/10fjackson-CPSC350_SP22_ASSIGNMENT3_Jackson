@@ -46,7 +46,11 @@ char** Grid::createGrid(string layout, int r, int c, float d){
   // cout << "Col :" << col << endl;
   float density = 1/d;
   // cout << "Density :" << density << endl;
-  char** grid;
+      // char** grid;
+  grid = new char* [row];
+  for(int i = 0; i < row; ++i) {
+      grid[i] = new char[col];
+  }
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -59,6 +63,7 @@ char** Grid::createGrid(string layout, int r, int c, float d){
           grid[i][j] = 'X';
           cout<<"60"<<endl;
           actualx++;
+
         }
         else{
           grid[i][j] = '-';

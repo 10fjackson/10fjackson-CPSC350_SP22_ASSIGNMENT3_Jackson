@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 
+//We are using a late day for this assignment
+
 int main(int argc, char** argv){
   // Grid *g = new Grid(8,8);
   // g->Test();
@@ -52,7 +54,10 @@ int main(int argc, char** argv){
       // cout << density << endl;
       gr = new Grid(row, col);
       cout<<"54"<<endl;
-      grid = gr -> createGrid("random");
+      gr->setRow(row);
+      gr->setCol(col);
+      grid = gr->createGrid("random", row, col, density);
+
       cout<<"56"<<endl;//generate random cells
       shadowGrid = gr->createShadowGrid(grid); //create shadow grid to copy grid
       shadowGrid = grid;
