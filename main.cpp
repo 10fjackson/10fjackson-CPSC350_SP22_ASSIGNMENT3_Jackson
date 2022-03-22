@@ -57,6 +57,7 @@ int main(int argc, char** argv){
       gr->setRow(row);
       gr->setCol(col);
       grid = gr->createGrid("random", row, col, density);
+      gr->printGrid(grid);
 
       cout<<"56"<<endl;//generate random cells
       shadowGrid = gr->createShadowGrid(grid); //create shadow grid to copy grid

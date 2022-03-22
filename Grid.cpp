@@ -51,6 +51,8 @@ char** Grid::createGrid(string layout, int r, int c, float d){
   for(int i = 0; i < row; ++i) {
       grid[i] = new char[col];
   }
+  // cout << "Row :" << row << endl;
+  // cout << "Col :" << col << endl;
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -59,9 +61,9 @@ char** Grid::createGrid(string layout, int r, int c, float d){
       for(int j = 0; j < col; ++j){
         int num = rand() % 2;
         if(num == 1){
-          cout<<"58"<<endl;
+          // cout<<"58"<<endl;
           grid[i][j] = 'X';
-          cout<<"60"<<endl;
+          // cout<<"60"<<endl;
           actualx++;
 
         }
@@ -71,28 +73,36 @@ char** Grid::createGrid(string layout, int r, int c, float d){
         num = 0;
       }
     }
+    // cout<<"62"<<endl;
+
     if(actualx<numx){
-      while(actualx != numx){
+      // while(actualx != numx){
           int r = rand() % (row-1);
           int c = rand() % (col-1);
           if(grid[r][c] == 'X'){
             grid[r][c] = '-';
             actualx++;
           }
-        }
+        // }
     }
 
     if(actualx>numx){
-      while(actualx != numx){
+      // while(actualx != numx){
           int r = rand() % (row-1);
           int c = rand() % (col-1);
           if(grid[r][c] == '-'){
             grid[r][c] = 'X';
             actualx--;
           }
-        }
+        // }
     }
   }//end of random if statement
+  for(int i = 0; i < row; ++i){
+      for(int j = 0; i < col; ++j){
+          cout << grid[i][j];
+      }
+      cout << endl;
+  }
   return grid;
 
 }
