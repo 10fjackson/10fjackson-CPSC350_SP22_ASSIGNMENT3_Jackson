@@ -39,15 +39,18 @@ void Grid::Test(){
     cout<<endl;
   }
 }
-char** Grid::createGrid(string layout){
-  int row;
+/*
+char** Grid::createGrid(string layout, int r, int c, float d){
+  int row = r;
   cout << "Row :" << row << endl;
-  int col;
+  int col = c;
   cout << "Col :" << col << endl;
 
-  float density = 1/density;
+  float density = 1/d;
   // cout << "Density :" << density << endl;
-  char** grid;
+  // char** grid;
+  // cout << "Row :" << row << endl;
+  // cout << "Col :" << col << endl;
   int actualx;
   int numx = ((row*col)/density);
   if(layout == "random"){
@@ -56,18 +59,74 @@ char** Grid::createGrid(string layout){
       for(int j = 0; j < col; ++j){
         int num = rand() % 2;
         if(num == 1){
-          cout<<"58"<<endl;
+          // cout<<"58"<<endl;
           grid[i][j] = 'X';
-          cout<<"60"<<endl;
+          // cout<<"60"<<endl;
           actualx++;
         }
         else{
           grid[i][j] = '-';
         }
-        num = 0;
       }
     }
+    // cout<<"62"<<endl;
     /*
+    if(actualx<numx){
+      // while(actualx != numx){
+          int r = rand() % (row-1);
+          int c = rand() % (col-1);
+          if(grid[r][c] == 'X'){
+            grid[r][c] = '-';
+            actualx++;
+          }
+        // }
+    }
+
+    if(actualx>numx){
+      // while(actualx != numx){
+          int r = rand() % (row-1);
+          int c = rand() % (col-1);
+          if(grid[r][c] == '-'){
+            grid[r][c] = 'X';
+            actualx--;
+          }
+        // }
+    }
+  }//end of random if statement
+  for(int i = 0; i < row; ++i){
+      for(int j = 0; j < col; ++j){
+          cout << grid[i][j];
+      }
+      cout << endl;
+  }
+  return grid;
+}
+*/
+char** Grid::createGrid(string layout, int r, int c, float d){
+  row = r;
+  col = c;
+  float density = 1/d;
+  int actualx;
+  int numx = ((row*col)/density);
+  if(layout == "random"){
+    //num will be a 1 or 2, will decide whether there is an X in this space
+    for(int i = 0; i < row;++i){
+      for(int j = 0; j < col; ++j){
+        int num = rand() % 2;
+        if(num == 1){
+          grid[i][j] = 'X';
+          cout<<grid[i][j];
+          actualx++;
+        }
+        else{
+          grid[i][j] = '-';
+          cout<<grid[i][j];
+        }
+        num = 0;
+      }
+      cout<<endl;
+    }
+
     if(actualx<numx){
       while(actualx != numx){
           int r = rand() % (row-1);
@@ -78,7 +137,6 @@ char** Grid::createGrid(string layout){
           }
         }
     }
-
     if(actualx>numx){
       while(actualx != numx){
           int r = rand() % (row-1);
@@ -89,15 +147,12 @@ char** Grid::createGrid(string layout){
           }
         }
     }
-    */
+
   }//end of random if statement
   return grid;
-
 }
 
 char** Grid::createShadowGrid(char** grid){
-    int row;
-    int col;
     shadowGrid = new char* [row];
     for(int i = 0; i < row; ++i) {
       shadowGrid[i] = new char[col];
@@ -107,6 +162,7 @@ char** Grid::createShadowGrid(char** grid){
             shadowGrid[x][y] = grid[x][y];
         }
     }
+    return shadowGrid;
 }
 
 
@@ -143,7 +199,7 @@ void Grid::setDensity(float d){
 
 void Grid::printGrid(char** grid){
     for(int i = 0; i < row; ++i){
-        for(int j = 0; i < col; ++j){
+        for(int j = 0; j < col; ++j){
             cout << grid[i][j];
         }
         cout << endl;
@@ -152,7 +208,7 @@ void Grid::printGrid(char** grid){
 
 bool Grid::isEmpty(char** grid){
     for(int i = 0; i < row; ++i){
-        for(int j = 0; i < col; ++j){
+        for(int j = 0; j < col; ++j){
             if(grid[i][j] == 'X'){
                 return false; //if there is an occupied cell then grid is not empty
             }

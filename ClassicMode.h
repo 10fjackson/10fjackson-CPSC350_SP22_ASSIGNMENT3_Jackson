@@ -10,8 +10,8 @@ class ClassicMode{
         ~ClassicMode();
 
 
-        char** PlayClassicMode(char** grid);
-        char** ScanNeighbors(char** grid);
+        char** PlayClassicMode(char** grid, int row, int col);
+        char** ScanNeighbors(char** grid, int row, int col);
 
 
     private:

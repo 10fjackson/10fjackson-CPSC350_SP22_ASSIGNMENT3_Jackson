@@ -10,7 +10,7 @@ class Gamemode{
         Gamemode(char current);
         ~Gamemode();
 
-        char** PlayGame(char** grid);
+        char** PlayGame(char** grid, int row, int col);
         void SetGamemode(int gamemode);
         char CheckNextGeneration(int neighbors);
         void SetCurrent(char current);

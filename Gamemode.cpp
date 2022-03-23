@@ -18,25 +18,24 @@ Gamemode::~Gamemode(){
 }
 
 void Gamemode::SetGamemode(int gamemode){
-    int gamemodeType = gamemode;
+      gamemodeType = gamemode;
     // cout << gamemodeType << endl;
 }
 
-char** Gamemode::PlayGame(char** grid){
+char** Gamemode::PlayGame(char** grid, int row, int col){
     ClassicMode *c = new ClassicMode(); //create a pointer to classic mode
-    int gamemode;
     char** shadowGrid;
     DoughnutMode *d = new DoughnutMode(); //create a pointer to doughnut mode
     MirrorMode *m = new MirrorMode(); //create a pointer to mirror mode
 
-    if(gamemode == 0){ //play classic mode
-        shadowGrid = c -> PlayClassicMode(grid); //play clqssic mode and store next generation grid in shadow grid
+    if(gamemodeType == 0){ //play classic mode
+        shadowGrid = c -> PlayClassicMode(grid, row, col); //play clqssic mode and store next generation grid in shadow grid
         return shadowGrid;
-    } else if (gamemode == 1){ //play doughnut mode
-        shadowGrid = d -> PlayDoughnutMode(grid); //play doughnut mode and store next generation grid in shadow grid
+    } else if (gamemodeType == 1){ //play doughnut mode
+        shadowGrid = d -> PlayDoughnutMode(grid, row, col); //play doughnut mode and store next generation grid in shadow grid
         return shadowGrid;
-    } else if (gamemode == 2){ //play mirror mode
-        shadowGrid = m -> PlayMirrorMode(grid); //play mirror mode and store next generation grid in shadow grid
+    } else if (gamemodeType == 2){ //play mirror mode
+        shadowGrid = m -> PlayMirrorMode(grid, row, col); //play mirror mode and store next generation grid in shadow grid
         return shadowGrid;
     }
 }

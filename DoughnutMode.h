@@ -9,8 +9,8 @@ class DoughnutMode{
         DoughnutMode();
         ~DoughnutMode();
 
-        char** PlayDoughnutMode(char** grid);
-        char** ScanNeighbors(char** grid);
+        char** PlayDoughnutMode(char** grid, int row, int col);
+        char** ScanNeighbors(char** grid, int row, int col);
 
 
     private:

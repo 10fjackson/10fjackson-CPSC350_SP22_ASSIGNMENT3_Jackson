@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 
+//We are using a late day for this assignment
+
 int main(int argc, char** argv){
   // Grid *g = new Grid(8,8);
   // g->Test();
@@ -52,7 +54,11 @@ int main(int argc, char** argv){
       // cout << density << endl;
       gr = new Grid(row, col);
       cout<<"54"<<endl;
-      grid = gr -> createGrid("random");
+      gr->setRow(row);
+      gr->setCol(col);
+      grid = gr->createGrid("random", row, col, density);
+      gr->printGrid(grid);
+
       cout<<"56"<<endl;//generate random cells
       shadowGrid = gr->createShadowGrid(grid); //create shadow grid to copy grid
       shadowGrid = grid;
@@ -78,7 +84,7 @@ int main(int argc, char** argv){
   cin >> gamemode; //store gamemode variable
   getline(cin, userInput);
   g -> SetGamemode(gamemode); //set gamemode in gamemode class
-  grid = g -> PlayGame(grid); //pass grid through play game class
+  grid = g -> PlayGame(grid, row, col); //pass grid through play game class
   // gr -> printGrid(grid);
 
   cout << "If would you like a pause between generations enter 0" << endl;
@@ -86,14 +92,16 @@ int main(int argc, char** argv){
   cout << "If you would like to output everything to a file enter 2" << endl;
   cin >> outputType; //store output type
   getline(cin, userInput);
-
+  cout<<"before while loop"<<endl;
+  gr->printGrid(grid);
   while(!(gr->isEmpty(grid) || gr->isStablized(grid, shadowGrid))){ //check if grid is empty or stabilized
+    cout<<"line 97"<<endl;
       if(outputType == 0){
           cout << "Generation " << generation << endl;
           gr -> printGrid(grid); //print grid
           system("pause"); //pause the system
           shadowGrid = grid; //store current grid into shadow grid
-          grid = g -> PlayGame(grid); //play next game and store into grid
+          grid = g -> PlayGame(grid, row, col); //play next game and store into grid
       } else if (outputType == 1){
           cout << "Generation " << generation << endl;
           gr -> printGrid(grid); //print grid
@@ -105,13 +113,13 @@ int main(int argc, char** argv){
               //     continue;
               // }
           shadowGrid = grid; //store current grid into shadow grid
-          grid = g -> PlayGame(grid); //play next game and store into grid
+          grid = g -> PlayGame(grid, row, col); //play next game and store into grid
       } else if (outputType == 2){
           cout << "Enter the file you would like to output to" << endl;
           getline (cin, userInput);
           p -> writeOutputFile(userInput, generation, grid); //output grid into file
           shadowGrid = grid; //store current grid into shadow grid
-          grid = g -> PlayGame(grid); //play next game and store into grid
+          grid = g -> PlayGame(grid, row, col); //play next game and store into grid
 
       } else {
           cout << "Invalid output type" << endl;

@@ -9,8 +9,8 @@ class MirrorMode{
         MirrorMode();
         ~MirrorMode();
 
-        char** PlayMirrorMode(char** grid);
-        char** ScanNeighbors(char** grid);
+        char** PlayMirrorMode(char** grid, int row, int col);
+        char** ScanNeighbors(char** grid, int row, int col);
 
 
     private:

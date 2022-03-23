@@ -10,78 +10,85 @@ ClassicMode::~ClassicMode(){
 
 }
 
-char** ClassicMode::PlayClassicMode(char** grid){
-    char** shadowGrid = ScanNeighbors(grid);
+char** ClassicMode::PlayClassicMode(char** grid, int row, int col){
+    char** shadowGrid = ScanNeighbors(grid, row, col);
     return shadowGrid;
 }
 
-char** ClassicMode::ScanNeighbors(char** grid){
-    // char grid[4][4] = { {'-','X','-','-'},
-    //                     {'X','X','X','-'},
-    //                     {'-','-','-','-'},
-    //                     {'-','-','-','-'}};
-    Grid g;
-    int row = g.getRow();
-    int col = g.getCol();
-    char** shadowGrid = grid; //create shadow grid to store current grid
+char** ClassicMode::ScanNeighbors(char** grid, int row, int col){
+    //cout<<"inside scan neighbors"<<endl;
+    Gamemode g('X'); //set current to X
+    char** shadowGrid = new char* [row];
+    for(int i = 0; i < row; ++i) {
+      shadowGrid[i] = new char[col];
+    }
+    for(int x = 0; x < row; ++x){
+        for(int y = 0; y < col; ++y){
+            shadowGrid[x][y] = grid[x][y];
+        }
+    }
+    //create shadow grid to store current grid
     bool isNeighbor = false; //check if there are neighbors
     int neighbors = 0;
 
     for(int i = 0; i < row; ++i){
       for(int j = 0; j < col; ++j){
-            Gamemode *g = new Gamemode('X'); //set current to X
+            //cout<<"line 26"<<endl;
+            //cout<<i<<j<<endl;
 
-            if(grid[i-1][j-1] == 'X' && (i != 0 && j != 0)){
+            if((i != 0 && j != 0) && grid[i-1][j-1] == 'X'){
               //top left
-              cout<<"scan neightbors detecteed top left"<<endl;
+              //cout<<"scan neightbors detecteed top left"<<endl;
               neighbors++;
             }
 
-            if(grid[i-1][j+1] == 'X' && (j != (col-1) && i !=0)){
+            if((j != (col-1) && i !=0) && grid[i-1][j+1] == 'X'){
               //top right
-              cout<<"scan neightbors detecteed top right"<<endl;
+              //cout<<"scan neightbors detecteed top right"<<endl;
               neighbors++;
             }
 
-            if(grid[i+1][j+1] == 'X' && (j != (col-1) && i != (row-1))){
+            if((j != (col-1) && i != (row-1)) && grid[i+1][j+1] == 'X'){
               //bottom right
-              cout<<"scan neightbors detecteed bottom right"<<endl;
+              //cout<<"scan neightbors detecteed bottom right"<<endl;
               neighbors++;
             }
 
-            if(grid[i+1][j-1] == 'X' && (i != (row-1) && j!=0)){
+            if((i != (row-1) && j!=0)&& grid[i+1][j-1] == 'X'){
               //bottom left
-              cout<<"scan neightbors detecteed bottom left"<<endl;
+              //cout<<"scan neightbors detecteed bottom left"<<endl;
               neighbors++;
             }
 
-            if(grid[i][j-1] == 'X' && j!=0){
+            if(j!=0 && grid[i][j-1] == 'X'){
               //left
-              cout<<"scan neightbors detecteed left"<<endl;
+              //cout<<"scan neightbors detecteed left"<<endl;
               neighbors++;
             }
 
-            if(grid[i][j+1] == 'X' && j != (col-1)){
+            if(j != (col-1) && grid[i][j+1] == 'X'){
               //right
-              cout<<"scan neightbors detecteed right"<<endl;
+              //cout<<"scan neightbors detecteed right"<<endl;
               neighbors++;
             }
 
-            if(grid[i-1][j] == 'X' && i != 0){
+            if(i != 0 && grid[i-1][j] == 'X'){
               //top
-              cout<<"scan neightbors detecteed top"<<endl;
+              //cout<<"scan neightbors detecteed top"<<endl;
               neighbors++;
             }
 
-            if(grid[i+1][j] == 'X' && i != (col-1)){
+            if(i != (col-1)&& grid[i+1][j] == 'X'){
               //bottom
-              cout<<"scan neightbors detecteed bottom"<<endl;
+              //cout<<"scan neightbors detecteed bottom"<<endl;
               neighbors++;
             }
-            cout<<neighbors<<endl;
-            shadowGrid[i][j] = g->CheckNextGeneration(neighbors);
+            //cout<<"line 79"<<endl;
+            //cout<<neighbors<<endl;
+            g.SetCurrent(grid[i][j]);
+            shadowGrid[i][j] = g.CheckNextGeneration(neighbors);
             neighbors = 0;
-
+            //cout<<"line 79"<<endl;
       }
     }
 
