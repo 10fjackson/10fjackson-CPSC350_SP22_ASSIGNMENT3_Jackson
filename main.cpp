@@ -68,7 +68,15 @@ int main(int argc, char** argv){
       cin >> inputFilePath; //store file path
       getline(cin, userInput);
       grid = p -> processMapFile(inputFilePath); //store processed grid into grid variable
-      shadowGrid = gr->createShadowGrid(grid); //make shadow grid
+      char** shadowGrid = new char* [row];
+      for(int i = 0; i < row; ++i) {
+        shadowGrid[i] = new char[col];
+      }
+      for(int x = 0; x < row; ++x){
+          for(int y = 0; y < col; ++y){
+              shadowGrid[x][y] = grid[x][y];
+          }
+      }
       cout << grid << endl;
       //cout << filePath << endl;
 
