@@ -85,7 +85,7 @@ int main(int argc, char** argv){
   getline(cin, userInput);
   g -> SetGamemode(gamemode); //set gamemode in gamemode class
   grid = g -> PlayGame(grid); //pass grid through play game class
-  // gr -> printGrid(grid);
+  gr -> printGrid(grid);
 
   cout << "If would you like a pause between generations enter 0" << endl;
   cout << "If you would like to press Enter to go to the next generation enter 1" << endl;

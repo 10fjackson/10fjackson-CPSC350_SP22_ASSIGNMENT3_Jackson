@@ -163,6 +163,8 @@ void Grid::printGrid(char** grid){
 }
 
 bool Grid::isEmpty(char** grid){
+    int row;
+    int col;
     for(int i = 0; i < row; ++i){
         for(int j = 0; i < col; ++j){
             if(grid[i][j] == 'X'){
@@ -174,6 +176,8 @@ bool Grid::isEmpty(char** grid){
 }
 
 bool Grid::isStablized(char** grid, char** shadowGrid){
+    int row;
+    int col;
     for(int i = 0; i < row; ++i){
         for (int j = 0; j < col; ++j){
             if(grid[i][j] != shadowGrid[i][j]){
